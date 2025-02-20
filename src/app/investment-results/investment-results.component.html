@@ -1,16 +1,30 @@
+@if(!results()){
+<p class="center">Please enters some values</p>
+} @else {
 <table>
-    <thead>
-        <tr>1</tr>
-        <tr>2</tr>
-        <tr>3</tr>
-        <tr>4</tr>
+  <thead>
+    <tr>
+      <th>year</th>
+      <th>Investment value</th>
+      <th>interest year</th>
+      <th>Total Interest</th>
+      <th>invested capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(result of results(); track $index){
 
-    </thead>
-    <tbody>
-        <tr>dsa</tr>
-        <tr>dsa</tr>
-        <tr>dsa</tr>
-        <tr>dsa</tr>
+    <tr>
+      <td>{{ result.year }}</td>
+      <td>{{ result.valueEndOfYear | currency: "EUR" }}</td>
+      <td>{{ result.interest }}</td>
+      <td>{{ result.totalInterest }}</td>
+      <td>{{ result.totalAmountInvested }}</td>
 
-    </tbody>
+    </tr>
+}
+
+  </tbody>
 </table>
+
+}
